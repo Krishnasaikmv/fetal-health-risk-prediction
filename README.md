@@ -20,55 +20,6 @@ This project presents a multimodal artificial intelligence system for fetal heal
 
 The key novelty of the project is the integration of **two complementary modalities—ultrasound image information and maternal clinical/nutrition information—within a single fetal health risk prediction framework**. Instead of depending only on ultrasound images or only on maternal parameters, the system independently estimates ultrasound risk and nutrition risk and subsequently combines these outputs using a meta-model fusion approach. The final risk decision therefore considers information from both modalities. An additional personalized food recommendation module connects the prediction outcome with practical dietary guidance based on the identified maternal nutritional condition.
 
-## 🏗️ System Architecture
-
-```text
-                    ┌──────────────────────────┐
-                    │   Ultrasound Images      │
-                    └────────────┬─────────────┘
-                                 │
-                                 ▼
-              ┌────────────────────────────────────┐
-              │ Ultrasound Risk Prediction          │
-              │ • Image Preprocessing               │
-              │ • CNN Model                         │
-              │ • Plane Classification              │
-              │ • Ultrasound Risk: Low/Medium/High│
-              └────────────────┬───────────────────┘
-                               │
-                               │
-                               ▼
-                    ┌──────────────────────────┐
-                    │   Meta-Model Fusion      │
-                    │ • Risk Aggregation        │
-                    │ • Risk Logic              │
-                    │ • Final Risk Level        │
-                    │   Low / Medium / High     │
-                    └────────────▲─────────────┘
-                                 │
-                               │
-              ┌─────────────────┴──────────────────┐
-              │ Nutrition Risk Prediction          │
-              │ • Data Preprocessing                │
-              │ • Random Forest Model               │
-              │ • Risk Classification               │
-              │ • Nutrition Risk: Low/Medium/High  │
-              └─────────────────▲──────────────────┘
-                                │
-                    ┌───────────┴───────────┐
-                    │    Maternal Data      │
-                    └───────────────────────┘
-
-                                 │
-                                 ▼
-              ┌────────────────────────────────────┐
-              │ Food Recommendation Block          │
-              │ • Condition Analysis                │
-              │ • Diet Generation                   │
-              │ • Personalized Food Plan            │
-              └────────────────────────────────────┘
-```
-
 ## 🔄 Methodology
 
 ### 1. Ultrasound Risk Prediction
@@ -216,10 +167,6 @@ fetal-health-risk-prediction/
 │   │   ├── variables.data-00000-of-00001
 │   │   └── variables.index
 │   └── assets/
-│
-├── nutrition_risk_model.pkl
-├── nutrition_scaler.pkl
-├── nutrition_label_encoder.pkl
 │
 └── README.md
 ```
