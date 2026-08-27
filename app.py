@@ -613,7 +613,7 @@ def render_assessment_page():
             cols = st.columns(len(uploaded))
             for i, file in enumerate(uploaded):
                 img = Image.open(file).convert("RGB")
-                cols[i].image(img, use_column_width=True)
+                cols[i].image(img, use_container_width=True)
                 if model_loaded:
                     plane = predict_plane(img)
                     if plane == "NON-FETAL":
